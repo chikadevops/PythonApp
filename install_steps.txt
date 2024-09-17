@@ -9,7 +9,7 @@ enter your docker hub crendetials
 sudo docker push your_docker_user_id/myphythonapp
 (note - change the above your_docker_user_id to userid you had created in cloud.docker.com)
 
-How to run application?
+How to run application
 
 sudo docker run -p 8081:5000 --rm --name myfirstApp1 your_docker_user_id/myphythonapp
 now go to browser enter the public dns name with port no 8081.  
