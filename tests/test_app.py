@@ -1,6 +1,11 @@
+import sys
+import os
 import pytest
-from app import app  # Import the Flask app
-import re
+
+# Add the parent directory (where app.py lives) to the Python path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from app import app  # Now this should work
 
 @pytest.fixture
 def client():
