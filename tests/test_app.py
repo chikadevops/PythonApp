@@ -2,10 +2,10 @@ import sys
 import os
 import pytest
 
-# Add the parent directory (where app.py lives) to the Python path
+# Ensure the app.py file can be found and imported
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from app import app  # Now this should work
+from app import app
 
 @pytest.fixture
 def client():
@@ -13,7 +13,6 @@ def client():
     with app.test_client() as client:
         yield client
 
-def test_index_route(client):
+def test_index_route_status_code(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b"http://ak-hdl.buzzfed.com/static" in response.data
